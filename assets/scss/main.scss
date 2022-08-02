@@ -1,0 +1,53 @@
+:root {
+  --color1: #FFFFFF;
+  --color2: #8dc8ff;
+  --color3: #C7C3C6;
+  --color4: #F56767;
+  --color5: #E5E5E5;
+  --color6: #C1C1C1;
+}
+
+$color1: #E5E5E5;
+@mixin fixedBox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: '微軟正黑體';
+}
+body {
+	background-color: $color1;
+}
+.loading {
+  @include fixedBox;
+  background-color: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: all .3s ease-in-out;
+  z-index: 10000;
+  &.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+.demo-box {
+  padding: 16px;
+  ol, ul {
+    padding-left: 16px;
+  }
+}
